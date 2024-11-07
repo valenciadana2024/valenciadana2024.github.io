@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DANA Valencia 2024 - Información y Recursos</title>
+    <title>DANA Valencia 2024 - Dashboard y Donaciones</title>
     <style>
         * {
             margin: 0;
@@ -26,12 +26,30 @@
             margin-bottom: 2rem;
         }
 
-        .alert-banner {
-            background-color: #ff6b6b;
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            font-weight: bold;
+        .dashboard-container, .donation-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .iframe-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .iframe-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
         }
 
         .container {
@@ -48,45 +66,45 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
 
-        .impact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .impact-item {
-            background: #e3f2fd;
-            padding: 1.5rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .resources {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .resource-list {
-            list-style: none;
-        }
-
-        .resource-list li {
-            margin-bottom: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 4px;
-        }
-
         .emergency-contacts {
             background: #ef5350;
             color: white;
             padding: 2rem;
             border-radius: 8px;
             margin: 2rem 0;
+        }
+
+        .donation-section {
+            background: #4CAF50;
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .donation-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .donation-section p {
+            margin-bottom: 1.5rem;
+        }
+
+        .donation-button {
+            display: inline-block;
+            background: white;
+            color: #4CAF50;
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .donation-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
 
         .emergency-contacts h2 {
@@ -117,8 +135,8 @@
         }
 
         @media (max-width: 768px) {
-            .impact-grid {
-                grid-template-columns: 1fr;
+            .iframe-wrapper {
+                padding-bottom: 75%; /* Ajuste para móviles */
             }
         }
     </style>
@@ -126,29 +144,32 @@
 <body>
     <header>
         <h1>DANA Valencia 2024</h1>
-        <p>Información y recursos sobre el temporal en la Comunidad Valenciana</p>
+        <p>Dashboard, información y ayuda</p>
     </header>
 
+    <div class="dashboard-container">
+        <div class="iframe-wrapper">
+            <iframe title="Dashboard DANA Valencia" src="https://app.powerbi.com/view?r=eyJrIjoiOTRkMTJlMjItZDU5OC00ZGQzLThkYjYtNGQ2ZjZkNmQyMGZkIiwidCI6Ijc1OTEwOGY5LWNkYjMtNGIwNC1iOTc2LTNlOWIzZDlhZDBiZSIsImMiOjh9&utm_campaign=emergenciadana&utm_medium=email&utm_content=es&utm_source=nodonantes" allowFullScreen></iframe>
+        </div>
+    </div>
+
     <main class="container">
-        <div class="info-card">
-            <h2>¿Qué es la DANA?</h2>
-            <p>La DANA (Depresión Aislada en Niveles Altos) es un fenómeno meteorológico que provocó lluvias torrenciales y fuertes vientos en la Comunidad Valenciana durante 2024. Este evento causó importantes inundaciones y daños en infraestructuras.</p>
+        <div class="donation-section">
+            <h2>¿Cómo puedes ayudar?</h2>
+            <p>Tu donación puede hacer la diferencia para las personas afectadas por la DANA</p>
+            <a href="https://www2.cruzroja.es/colabora/haz-un-donativo" class="donation-button" target="_blank" rel="noopener noreferrer">REALIZAR DONACIÓN</a>
         </div>
 
-        <section class="impact-grid">
-            <div class="impact-item">
-                <h3>Precipitaciones</h3>
-                <p>Registros históricos de lluvia en varias localidades de la provincia</p>
-            </div>
-            <div class="impact-item">
-                <h3>Áreas Afectadas</h3>
-                <p>Múltiples municipios de la Comunidad Valenciana sufrieron inundaciones</p>
-            </div>
-            <div class="impact-item">
-                <h3>Daños</h3>
-                <p>Afectaciones a infraestructuras, viviendas y servicios públicos</p>
-            </div>
-        </section>
+        <div class="info-card">
+            <h2>Interpretación del Dashboard</h2>
+            <p>Este dashboard muestra datos en tiempo real sobre la situación de la DANA en Valencia. Incluye información sobre:</p>
+            <ul>
+                <li>Niveles de precipitación</li>
+                <li>Áreas afectadas</li>
+                <li>Recursos desplegados</li>
+                <li>Incidencias registradas</li>
+            </ul>
+        </div>
 
         <div class="emergency-contacts">
             <h2>Teléfonos de Emergencia</h2>
@@ -160,31 +181,12 @@
             </ul>
         </div>
 
-        <section class="resources">
-            <h2>Recursos y Ayudas</h2>
-            <ul class="resource-list">
-                <li>
-                    <h3>Ayudas Económicas</h3>
-                    <p>Información sobre las ayudas disponibles para afectados por la DANA</p>
-                </li>
-                <li>
-                    <h3>Servicios de Emergencia</h3>
-                    <p>Puntos de atención y protocolos de actuación</p>
-                </li>
-                <li>
-                    <h3>Recomendaciones</h3>
-                    <p>Consejos de seguridad y prevención ante lluvias torrenciales</p>
-                </li>
-            </ul>
-        </section>
-
         <div class="info-card">
-            <h2>Medidas de Prevención</h2>
+            <h2>Recursos Adicionales</h2>
             <ul>
-                <li>Mantenerse informado a través de canales oficiales</li>
-                <li>Evitar zonas inundables</li>
-                <li>Asegurar puertas y ventanas</li>
-                <li>Tener preparado un kit de emergencia</li>
+                <li>Consulta las actualizaciones oficiales de AEMET</li>
+                <li>Sigue las redes sociales de las autoridades locales</li>
+                <li>Mantente informado a través de medios oficiales</li>
             </ul>
         </div>
 
@@ -192,8 +194,8 @@
     </main>
 
     <footer>
-        <p>Esta página web proporciona información sobre la DANA que afectó a Valencia en 2024.</p>
-        <p>Para más información, consulta las fuentes oficiales y medios locales.</p>
+        <p>Dashboard proporcionado por fuentes oficiales. Actualización en tiempo real.</p>
+        <p>Las donaciones son gestionadas directamente por Cruz Roja Española.</p>
     </footer>
 </body>
 </html>
